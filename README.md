@@ -488,3 +488,94 @@ Et comme je trouve qu'ici extraire une méthode pour une ligne n'apporte plus gr
 Avec un peu de recul, ce qui est rassurant dans cette version, c'est qu'on ne mentionne que les jalons (*I*, *V*, *X*) et les exceptions (*IV* et *IX*). Et qu'une seule fois chacun&nbsp;! C'est rassurant dans la mesure où on se rend compte qu'on a que du code utile, rien de superflu. Et c'est effectivement ce qu'apporte le TDD, une conception (utiliser les jalons, les exceptions données par les spécifications, réusiner le code) qui a été pilotée par les tests.
 
 Un énorme merci à [Benoit Gantaume](https://www.linkedin.com/in/benoitgantaume/) qui m'a conforté dans l'idée qu'[il fallait sortir du contenu et ne pas attendre que le contenu soit parfait](https://player.fm/series/artisan-developpeur/comment-ne-pas-creer-de-contenu-avec-romain-fallet) avant de le publier (sous peine de ne jamais le publier)&nbsp;!
+
+## Annexe
+
+Voivi l'ensemble des tests qui int été écrits jusqu'à présent&nbsp;:
+```java
+package com.mycompany;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class RomanNumbersTest {
+    @Test
+    public void OneShouldReturnI() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("I", roman.convert(1));
+    }
+
+    @Test
+    public void TwoShouldReturnII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("II", roman.convert(2));
+    }
+
+    @Test
+    public void ThreeShouldReturnIII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("III", roman.convert(3));
+    }
+
+    @Test
+    public void FourShouldReturnIV() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("IV", roman.convert(4));
+    }
+
+    @Test
+    public void FiveShouldReturnV() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("V", roman.convert(5));
+    }
+
+    @Test
+    public void SixShouldReturnVI() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("VI", roman.convert(6));
+    }
+
+    @Test
+    public void SevenShouldReturnVII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("VII", roman.convert(7));
+    }
+
+    @Test
+    public void EightShouldReturnVIII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("VIII", roman.convert(8));
+    }
+
+    @Test
+    public void NineShouldReturnIX() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("IX", roman.convert(9));
+    }
+
+    @Test
+    public void TenShouldReturnX() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("X", roman.convert(10));
+    }
+
+    @Test
+    public void ElevenShouldReturnXI() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("XI", roman.convert(11));
+    }
+
+    @Test
+    public void TwelveShouldReturnXII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("XII", roman.convert(12));
+    }
+
+    @Test
+    public void ThirteenShouldReturnXIII() {
+        RomanNumber roman = new RomanNumber();
+        assertEquals("XIII", roman.convert(13));
+    }
+
+}
+```
