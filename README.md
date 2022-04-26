@@ -4,7 +4,7 @@
 
 Le Test Driven Development (TDD) est une manière de développer, où ce sont les spécifications écrites sous forme de tests (et leurs résultats attendus) qui guident votre développement avant l'écriture du code. Chaque test ajouté fait avancer vers la résolution du problème, chaque modification du code déjà écrit est encouragée, tant que les tests précédents ne sont pas "cassés". Si vous cassez un test que vous aviez validé, vous devez revenir en arrière sur votre code ajouté et appliquer d'autres modifications qui vous feront progresser (et jamais régresser).
 
-Vous êtes lassés des exemples classiques de TDD tel que FizzBuzz et vous souhaitez aller un tout petit peu plus loin ? Dans cet article je vous présente un nouvel exercice à pratiquer si vous êtes en manque d'inspiration ainsi qu'une ébauche de solution. Attention, je n'ai pas dit que l'exemple FizzBuzz n'était pas un bon exemple, au contraire, c'est un exemple que je vous invite à pratiquer au moins une fois ! Mais si vous cherchez à aller plus loin et que vous ne savez pas dans quelle direction aller, vous trouverez, je l'espère, une piste dans cet article.
+Vous êtes lassés des exemples classiques de TDD tel que [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) et vous souhaitez aller un tout petit peu plus loin&nbsp;? Dans cet article je vous présente un nouvel exercice à pratiquer si vous êtes en manque d'inspiration ainsi qu'une ébauche de solution. Attention, je n'ai pas dit que l'exemple FizzBuzz n'était pas un bon exemple, au contraire, c'est un exemple que je vous invite à pratiquer au moins une fois&nbsp;! Mais si vous cherchez à aller plus loin et que vous ne savez pas dans quelle direction aller, vous trouverez, je l'espère, une piste dans cet article.
 La numérotation romaine
 
 Sans vouloir rappeler toutes les règles d'écriture des nombre comme les romains la pratiquaient ([Wikipedia fait cela très bien](https://en.wikipedia.org/wiki/Fizz_buzz)), voici la liste des premiers nombres de 1 à 10 : *I*, *II*, *III*, *IV*, *V*, *VI*, *VII*, *VIII*, *IX* et *X*.
@@ -101,7 +101,7 @@ Et voici le code le plus simple possible issu de la méthode précédente et qui
     }
 ```
 
-On ne cherche pas la "meilleure" solution. On aurait pu mettre un else, mais à quoi bon&nbsp;? En le mettant, bien évidemment les deux tests vont réussir. Il n'y a pas d'obligation. Vous verrez qu'en avançant on structurera assez vite le code. De même, je n'ai pas mis d'accolades après le if. Si un jour vous ajoutez du code et oubliez d'ajouter les accolades nécessaires, vous pourrez vraiment compter sur les tests pour vous dire que quelque chose ne va pas 😀.
+On ne cherche pas la "meilleure" solution. On aurait pu mettre un `else`, mais à quoi bon&nbsp;? En le mettant, bien évidemment les deux tests vont réussir. Il n'y a pas d'obligation. Vous verrez qu'en avançant on structurera assez vite le code. De même, je n'ai pas mis d'accolades après le `if`. Si un jour vous ajoutez du code et oubliez d'ajouter les accolades nécessaires, vous pourrez vraiment compter sur les tests pour vous dire que quelque chose ne va pas 😀.
 
 Allez, on passe à trois&nbsp;? On ajoute le test, on fait échouer le code (il va retourner *I* alors qu'on attend *III*) et on adapte le code, au plus simple. Ce qui nous donne (par exemple)&nbsp;:
 
@@ -437,7 +437,7 @@ Et après&nbsp;?
 
 Dans un prochain article on ira au delà de *XIII*, toujours avec la même méthode. Si vous voulez essayer par vous même, allez-y et faites moi part de votre retour d'expérience.
 
-Je tiens à préciser que le code présenté ici a été écrit après avoir déjà codé ce programme de transformation une première fois. On peut considérer cela comme un kata. J'ai volontairement laissé l'introduction de la méthode `convertFiveToEigth()` dans ma démarche, car je voulais que le code soit plus clair. Il n'y a aucun problème à revenir dessus et à l'enlever, ni d'avoir honte de l'avoir ajouté à un instant *t*. Sincèrement, la solution qui émerge est différente de celle qui a déjà émergée. Et il n'y a aucun problème avec cela, car il n'y a pas qu'une seule manière de faire, et les deux passent l'ensemble des tests, et c'est bien ce qui compte, non&nbsp;?
+Je tiens à préciser que le code présenté ici a été écrit après avoir déjà codé ce programme de transformation une première fois. On peut considérer cela comme un [kata](https://www.linkedin.com/pulse/my-approach-gilded-rose-kata-part-1-alain-gaymard/). J'ai volontairement laissé l'introduction de la méthode `convertFiveToEigth()` dans ma démarche, car je voulais que le code soit plus clair. Il n'y a aucun problème à revenir dessus et à l'enlever, ni d'avoir honte de l'avoir ajouté à un instant *t*. Sincèrement, la solution qui émerge est différente de celle qui a déjà émergée. Et il n'y a aucun problème avec cela, car il n'y a pas qu'une seule manière de faire, et les deux passent l'ensemble des tests, et c'est bien ce qui compte, non&nbsp;?
 
 ## Épilogue
 
