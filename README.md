@@ -491,7 +491,7 @@ Un énorme merci à [Benoit Gantaume](https://www.linkedin.com/in/benoitgantaume
 
 ## Annexe
 
-Voivi l'ensemble des tests qui int été écrits jusqu'à présent&nbsp;:
+Voici l'ensemble des tests qui ont été écrits jusqu'à présent&nbsp;:
 ```java
 package com.mycompany;
 
