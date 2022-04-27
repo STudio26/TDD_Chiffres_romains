@@ -187,7 +187,7 @@ Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? O
     }
 ```
 
-Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même rêgle. On soustrait le "maximum" possible et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
+Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même règle. On soustrait le "maximum" possible et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
 
 Essayons cela&nbsp;:
 
