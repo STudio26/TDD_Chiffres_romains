@@ -453,7 +453,7 @@ Je trouvais la méthode `convertNothingToThree()` un peu lourde :
     }
 ```
 
-On crée un `StringBuilder` (qui reste vide parfois), ensuite on entre dans un boucle pour compter le nombre de répétitions de *I* à générer. L'idée de la récursivité pour *X*, *XI*, *XII* et *XIII* appliquée au reste quand on a enlevé *X* ne s'appliquerait-elle pas aussi à *rien*, *I*, *II* et *III*&nbsp;? Mais si, bien sûr&nbsp;! On peut simplement écrire&nbsp:
+On crée un `StringBuilder` (qui reste vide parfois), ensuite on entre dans un boucle pour compter le nombre de répétitions de *I* à générer. L'idée de la récursivité pour *X*, *XI*, *XII* et *XIII* appliquée au reste quand on a enlevé *X* ne s'appliquerait-elle pas aussi à *rien*, *I*, *II* et *III*&nbsp;? Mais si, bien sûr&nbsp;! On peut simplement écrire&nbsp;:
 
 ```java
     private String convertNothingToThree(int value) {
