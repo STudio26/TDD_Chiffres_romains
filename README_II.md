@@ -21,7 +21,7 @@ Lors de la première partie nous étions arrivé à ce code pour convertir le no
  ```
  
 On a procédé étape par étape en utilisant les 13 premiers nombres comme spécification. Ce n'est pas "faux" de dire cela, mais pour aller jusqu'à 3999 (oui, on ne peut compter que jusqu'à 3999 avec ce système), on ne va pas écrire 4000 tests tout de même&nbsp;!
-Rappelons que les règles d'écriture sont basées sur la répétition de trois fois maximum du *I*, du *X*, du *C* et du *M* et la soustraction pour *IV* (5&nbsp;-&nbsp;1), *IX* (10&nbsp;-&nbsp;1), *XL* (40&nbsp;-&nbsp;10), *XC* (100&nbsp;-&nbsp;10), *CD* (500&nbsp;-&nbsp;100) et *CM* (1000&nbsp;-&nbsp;100). Ces règes font aussi parti des spécifications.
+Rappelons que les règles d'écriture sont basées sur la répétition de trois fois maximum du *I*, du *X*, du *C* et du *M* et la soustraction pour *IV* (5&nbsp;-&nbsp;1), *IX* (10&nbsp;-&nbsp;1), *XL* (50&nbsp;-&nbsp;10), *XC* (100&nbsp;-&nbsp;10), *CD* (500&nbsp;-&nbsp;100) et *CM* (1000&nbsp;-&nbsp;100). Ces règes font aussi parti des spécifications.
 Formulé autrement, tant qu'on le peut, on répète le nombre (*I*, *X*, *C*, *M*). On peut ainsi très vite écrire 3 (*III*), 20 (*XX*), 100 (*C*) ou trois mille (*MMM*). Je cherche pour l'instant à passer à l'étape suivante. Mais j'ai tout de même envie d'essayer avec le nombre 14.
 Je code le test&nbsp;:
 ```java
