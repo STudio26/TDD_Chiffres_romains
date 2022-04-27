@@ -245,4 +245,4 @@ Décorticons un bloc&nbsp;:
 
 Dans ce bloc on a 40, sa valeur associée *XL* et une soustraction de 40 sur la valeur traitée. C'est exactement pareil pour chaque bloc (sauf le dernier, le *I* où le `continue` a été omis, mais cela ne poserait pas de problème de l'avoir, vous pouvez tester).
 
-On a donc une liste de valeur 40, 10, 9, 5, 4, 1 et les chiffres romains associés *XL*, *X*, *IX*, *V*, *IV* et *I*. Ne pourrait-t-on pas les stocker dans un structure et boucler sur ces différentes valeurs pour éviter de répéter les blocs&nbsp;? C'est certes encore un gros changement, mais les tests sont là pour nous aider en cas d'erreur.
+On a donc une liste de valeur 40, 10, 9, 5, 4, 1 et les chiffres romains associés *XL*, *X*, *IX*, *V*, *IV* et *I*. Ne pourrait-t-on pas les **stocker dans un structure** et **boucler sur ces différentes valeurs** pour éviter de répéter les blocs `if`&nbsp;? C'est certes encore un gros changement, mais les tests sont là pour nous aider en cas d'erreur.
