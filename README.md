@@ -392,7 +392,7 @@ Et là on peut prendre le temps de récrire les 4 première lignes comme ont l'a
     }
 ```
 
-Ne pourrait-on pas encore améliorer le code&nbsp;? Convertir 10, 11, 12 ou 13 c'est comme aouter *rien*, *I*, *II* ou *III* à *X*. Mais *rien*, *I*, *II* ou *III* est retourné aussi bien par `convertNothingToThree()` que par `convert()`, non&nbsp;? Du coup ou peut facilement introduire une récursivité ici et coder ainsi&nbsp;:
+Ne pourrait-on pas encore améliorer le code&nbsp;? Convertir 10, 11, 12 ou 13 c'est comme ajouter *rien*, *I*, *II* ou *III* à *X*. Mais *rien*, *I*, *II* ou *III* est retourné aussi bien par `convertNothingToThree()` que par `convert()`, non&nbsp;? Du coup ou peut facilement introduire une récursivité ici et coder ainsi&nbsp;:
 
 ```java
     String convert(int value) {
