@@ -178,7 +178,7 @@ Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp; on a su
 
 Il est difficile de choisir la prochaine étape. Est-ce qu'on simplifie le code où on essaye d'aller plus loin dans les tests&nbsp;? Il n'y a pas de règle. Je décide de voir ce que va donner le code avec 40 (*XL*). On peut dores et déjà dire que le test va échouer, à aucun moment on ne propose la lettre *L* en sortie.
 
-Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? On peut ajouter le moins de code possible&nbsp;
+Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? On peut ajouter le moins de code possible&nbsp;:
 
 ```java
     if (value == 40) {
