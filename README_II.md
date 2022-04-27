@@ -36,11 +36,12 @@ Je code le test&nbsp;:
 Et là, *miracle*, le test passe&nbsp;! Par quelle magie&nbsp;?
 
 14 est supérieur à 10, donc on garde *X* et on concatène le résultat de la conversion de 4 (14&nbsp;-&nbsp;10). 4 n'étant ni supérieur à 10, ni égal à neuf, ni supérieur ou égal à cinq, on retournera donc *IV*. Soit *X* concaténé à *IV*, ce qui est exact.
-Le fait qu'un test passe alors qu'on n'a pas ajouté de code doit nous faire prendre conscience que le test n'apporte rien. Mais alors pourquoi l'avoir écrit&nbsp;? Parce qu'on était un peu perdu. Mais cela en dit aussi beaucoup sur notre compréhension du problème. Cela veut dire que le code en place n'est pas si mal et est valable pour 15, 16, 17, 18 et 19 (je vous laisse vérifier). Et pour 20&nbsp;? Aussi&nbsp;!
 
-Ce qui fonctionne pour 20 fonctionne jusqu'à 39. Concrètement, on part d'un nombre (prenons 27) et on lui soustrait "le maximum" possible parmi 10, 9, 5, 4 ou 1 et on continue la même logique sur le nombre restant. Donc de 27 on peut soustraire *X*, il reste 17. De 17 on peut soustraire *X*, il reste 7. De 7 on on peut soustraire *V*, il reste 2. De 2 on peut soustraire *I* il reste 1. De ce 1 on peut soustraire *I* et il reste zéro. Ce qui nous donne la successions *X*, *X*, *V*, *I* pui *I*, soit *XXVII* (27).
+Le fait qu'un test passe alors qu'on n'a pas ajouté de code doit nous faire prendre conscience que le test n'apporte rien. Mais alors pourquoi l'avoir écrit&nbsp;? Parce qu'on était un peu perdu. Mais cela en apprend aussi beaucoup sur notre compréhension du problème. Cela veut dire que le code en place n'est pas si mal et est valable pour 15, 16, 17, 18 et 19 (je vous laisse vérifier). Et pour 20&nbsp;? Aussi&nbsp;!
 
-Tant qu'on a pas atteind zéro on soustrait le "maximum" possible (valeur que l'on garde pour constituer la réponse), et on continue d'appliquer la même méthode sur la valeur restante. Cela est déjà rendu possible par la récursivité, mais on pourrait tout à fait l'écrire avec un `while`. À ce stade c'est encore assez facile à changer et de toute manière les tests vont nous rassurer que nous ne cassons rien, qu'il n'y a pas de régression. D'ailleurs, avant de commencer, on a une alternance de `==` et `>=` que j'aimerais harmoniser. On peut mettre `>=` partout. Essayons ceci&nbsp;:
+Ce qui fonctionne pour 20 fonctionne jusqu'à 39. Concrètement, on part d'un nombre (prenons 27) et on lui soustrait "le maximum" possible parmi 10, 9, 5, 4 ou 1 et on continue la même logique sur le nombre restant. Donc de 27 on peut soustraire *X*, il reste 17. De 17 on peut soustraire *X*, il reste 7. De 7 on on peut soustraire *V*, il reste 2. De 2 on peut soustraire *I* il reste 1. De ce 1 on peut soustraire *I* et il reste zéro. Ce qui nous donne la succession *X*, *X*, *V*, *I* puis *I*, soit *XXVII* (27).
+
+Tant qu'on a pas atteint zéro on soustrait le "maximum" possible (valeur que l'on garde pour constituer la réponse), et on continue d'appliquer la même méthode sur la valeur restante. Cela est déjà rendu possible par la récursivité, mais on pourrait tout à fait l'écrire avec un `while` (tant que). À ce stade c'est encore assez facile à changer et de toute manière les tests vont nous rassurer que nous ne cassons rien, qu'il n'y a pas de régression. D'ailleurs, avant de commencer, on a une alternance de `==` et `>=` que j'aimerais harmoniser. On peut mettre `>=` partout. En effet, on essaye d'abord de soustraire 10, puis 9, puis 5. S'il y a égalité, il n'y a plus rien à soustraire. S'il nous reste 4, on ne peut que retourner *IV*. Essayons ceci&nbsp;:
 
 ```java
     String convert(int value) {
@@ -60,7 +61,7 @@ Tant qu'on a pas atteind zéro on soustrait le "maximum" possible (valeur que l'
     }
 ```
 
-Les tests sont toujours verts. On procède par petites touches pour avancer, les tests nous rassurent. Dans le même but d'harmonisation, et pour basculer vers un `while`, ne pourrait-on pas mettre `convert(value - *quelque chose*)` partout&nbsp;?
+Les tests sont toujours verts. On procède par petites touches pour avancer, les tests nous rassurent. Dans le même but d'harmonisation, et pour basculer vers un `while`, ne pourrait-on pas mettre `convert(value - laValeurRetournée)` partout&nbsp;?
 
 Tentons cela&nbsp;:
 
@@ -76,7 +77,7 @@ Tentons cela&nbsp;:
             return "V" + convert(value - 5);
 
         if (value >= 4)
-            return "IV" convert(value - 4);
+            return "IV" + convert(value - 4);
 
         return (value == 0) ? "" : "I" + convert(value - 1);
     }
@@ -105,4 +106,143 @@ Et pour harmoniser la dernière ligne on peut inverser le test&nbsp;:
     }
 ```
 
-Là je pense qu'on va pou
+Là, le schéma est tellement répétitif qu'on va pourvoir passer au `while` assez facilement. C'est un *gros* changement, mais on a notre filet de sécurité&nbsp;: les tests.
+
+```java
+    String convert(int value) {
+        StringBuilder result = new StringBuilder();
+        while (value != 0) {
+            if (value >= 10) {
+                result.append("X");
+                value -= 10;
+            }
+            if (value >= 9) {
+                result.append("IX");
+                value -= 9;
+            }
+            if (value >= 5)
+                result.append("V");
+                value -= 5;
+            }
+            if (value >= 4)
+                result.append("IV");
+                value -= 4;
+            }
+            if (value >= 1) {
+                result.append("I");
+                value -= 1;
+            }
+        }
+        return result.toString();
+    }
+```
+
+Et là, catastrophe&nbsp;! Des tests comme 20, 21, 30 ou 39 qui passaient ne passent plus. Soit on arrive à corriger assez vite, soit on revient en arrière. Normalement un test vous présente la valeur attendue et la valeur retournée. Par exemple pour 30 on attend *XXX* et on a *XIXVIVII* (soit, je devinne, 10 + 9 + 5 + 4 + 1 + 1) qui ne respecte pas les règles de la notation que nous connaissons.
+
+Le problème vient du fait qu'avec ce `while` on enchaine les différentes étapes et on n'essaye pas de soustraire le maximum possible. Si on reprend notre exemple, de 30 on peut soustraire 10 (*X*) et ensuite de 20 on peut encore soustraire 10 (*X*). Sauf qu'on soustrait 9 (*IX*) parcequ'**on ne reprend pas la boucle au début**, là est l'erreur. Dans chaque bloc `if` il faut veiller à arrêter la boucle et reprendre au début. On peut simplement ajouter un `continue`. Ce qui donne&nbsp;:
+
+```java
+    String convert(int value) {
+        StringBuilder result = new StringBuilder();
+        while (value != 0) {
+            if (value >= 10) {
+                result.append("X");
+                value -= 10;
+                continue;
+            }
+            if (value >= 9) {
+                result.append("IX");
+                value -= 9;
+                continue;
+            }
+            if (value >= 5) {
+                result.append("V");
+                value -= 5;
+                continue;
+            }
+            if (value >= 4) {
+                result.append("IV");
+                value -= 4;
+                continue;
+            }
+            if (value >= 1) {
+                result.append("I");
+                value--;
+            }
+        }
+        return result.toString();
+    }
+```
+
+Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp; on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaines. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
+
+Il est difficile de choisir la prochaine étape. Est-ce qu'on simplifie le code où on essaye d'aller plus loin dans les tests&nbsp;? Il n'y a pas de règle. Je décide de voir ce que va donner le code avec 40 (*XL*). On peut dores et déjà dire que le test va échouer, à aucun moment on ne propose la lettre *L* en sortie.
+
+Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? On peut ajouter le moins de code possible&nbsp;
+
+```java
+    if (value == 40) {
+        result.append("XL);
+        value = 0;
+    }
+```
+
+Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même rêgle. On soustrait le "maximum" possible et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
+
+Essayons cela&nbsp;:
+
+```java
+    String convert(int value) {
+        StringBuilder result = new StringBuilder();
+        while (value != 0) {
+            if (value >= 40) {
+                result.append("XL");
+                value -= 40;
+                continue;
+            }
+            if (value >= 10) {
+                result.append("X");
+                value -= 10;
+                continue;
+            }
+            if (value >= 9) {
+                result.append("IX");
+                value -= 9;
+                continue;
+            }
+            if (value >= 5) {
+                result.append("V");
+                value -= 5;
+                continue;
+            }
+            if (value >= 4) {
+                result.append("IV");
+                value -= 4;
+                continue;
+            }
+            if (value >= 1) {
+                result.append("I");
+                value--;
+            }
+        }
+        return result.toString();
+    }
+```
+
+Et le test passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire le maximum possibe comme cela est déjà en place.
+
+Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
+
+Décorticons un bloc&nbsp;:
+
+```java
+            if (value >= 40) {
+                result.append("XL");
+                value -= 40;
+                continue;
+            }
+```
+
+Dans ce bloc on a 40, sa valeur associée *XL* et une soustraction de 40 sur la valeur traitée. C'est exactement pareil pour chaque bloc (sauf le dernier, le *I* où le `continue` a été omis, mais cela ne poserait pas de problème de l'avoir, vous pouvez tester).
+
+On a donc une liste de valeur 40, 10, 9, 5, 4, 1 et les chiffres romains associés *XL*, *X*, *IX*, *V*, *IV* et *I*. Ne pourrait-t-on pas les stocker dans un structure et boucler sur ces différentes valeurs pour éviter de répéter les blocs&nbsp;? C'est certes encore un gros changement, mais les tests sont là pour nous aider en cas d'erreur.
