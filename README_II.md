@@ -26,9 +26,9 @@ Formulé autrement, tant qu'on le peut, on répète le nombre (*I*, *X*, *C*, *M
 Je code le test&nbsp;:
 ```java
     @Test
-    public void FourtyNineShouldReturnXLIX() {
+    public void FourteenShouldReturnXIV() {
         RomanNumber roman = new RomanNumber();
-        assertEquals("XLIX", roman.convert(49));
+        assertEquals("XIV", roman.convert(14));
     }
 ```
 Et là, *miracle*, le test passe&nbsp;! Par quelle magie&nbsp;?
