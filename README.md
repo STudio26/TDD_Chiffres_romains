@@ -213,7 +213,7 @@ Bon, c'est moche, mais tout passe. Je ne vois pas trop quel refactoring on pourr
 
 ## 7, 8, 9 dans mon panier neuf
 
-J'ajoute les test pour les nombres 7 et 8 et le code correspondant, toujours en faisant un test sur la valeur et en retournant la valeur attendue… en dur. Le code finit par ressembler à cela&nbsp;:
+J'ajoute les tests pour les nombres 7 et 8 et le code correspondant, toujours en faisant un test sur la valeur et en retournant la valeur attendue… en dur. Le code finit par ressembler à cela&nbsp;:
 
 ```java
     String convert(int value) {
