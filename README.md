@@ -62,7 +62,7 @@ public class RomanNumber {
 }
 ```
 
-On n'a plus d'erreur de compilation&nbsp;! Évidemment le test ne passe pas, car à aucun moment on ne retourne *I*. Le minimum de code pour que le test passe est de retourner *I*… en dur. Si si, vous avez bien lu, en dur.
+On n'a plus d'erreur de compilation&nbsp;! Évidemment le test ne passe pas, car à aucun moment on ne retourne *I*. Le minimum de code pour que le test passe est de retourner *I*… en dur. Si si, vous avez bien lu, **en dur**.
 
 ```java
 package com.mycompany
@@ -117,7 +117,7 @@ Allez, on passe à trois&nbsp;? On ajoute le test, on fait échouer le code (il 
     }
 ```
 
-Les tests passent, cool&nbsp;! Là on se pose, et on se souvient d'avoir entendu que d'abord on écrit un test qui échoue, qu'ensuite on écrit le code pour que le test passe et ensuite on fait du réusinage de code (du refactoring). Si on a 1 on retourne *I*, si on a 2 on retourne *II* et si on a 3 on retourne *III*, on ne pourrait pas écrire cela plus simplement&nbsp;? Il y a plein de manières différentes de faire cela d'ailleurs. On essaye, et si c'est faux, les tests vont échouer, on ne risque donc rien 😉. On peut toujours revenir en arrière…
+Les tests passent, cool&nbsp;! Là on se pose, et on se souvient d'avoir entendu que d'abord on écrit un test qui échoue, qu'ensuite on écrit le code pour que le test passe et ensuite on fait du réusinage de code (du **refactoring**). Si on a 1 on retourne *I*, si on a 2 on retourne *II* et si on a 3 on retourne *III*, on ne pourrait pas écrire cela plus simplement&nbsp;? Il y a [plein de manières différentes de faire cela](https://www.baeldung.com/java-string-of-repeated-characters) d'ailleurs. On essaye, et si c'est faux, les tests vont échouer, on ne risque donc rien 😉. On peut toujours revenir en arrière…
 
 ```java
     String convert(int value) {
@@ -350,7 +350,7 @@ Continuons avec onze. Si on écrit le code de test il va retourner *VIIIIII*. On
     }
 ```
 
-Et douze&nbsp;? Et treize&nbsp;? J'accélère légèrement, mais je m'oblige toujours à écrire le test et à le faire échouer avant d'ajouter le code pour faire passer le test. Ne prenez pas de raccourci, c'est dangereux&nbsp;!
+Et douze&nbsp;? Et treize&nbsp;? J'accélère légèrement, mais je m'oblige **toujours** à écrire le test et à le faire échouer avant d'ajouter le code pour faire passer le test. Ne prenez pas de raccourci, c'est dangereux&nbsp;!
 
 ```java
     String convert(int value) {
@@ -485,7 +485,7 @@ Et comme je trouve qu'ici extraire une méthode pour une ligne n'apporte plus gr
 
 Évidemment les tests sont toujours verts.
 
-Avec un peu de recul, ce qui est rassurant dans cette version, c'est qu'on ne mentionne que les jalons (*I*, *V*, *X*) et les exceptions (*IV* et *IX*). Et qu'une seule fois chacun&nbsp;! C'est rassurant dans la mesure où on se rend compte qu'on a que du code utile, rien de superflu. Et c'est effectivement ce qu'apporte le TDD, une conception (utiliser les jalons, les exceptions données par les spécifications, réusiner le code) qui a été pilotée par les tests.
+Avec un peu de recul, ce qui est rassurant dans cette version, c'est qu'on ne mentionne que les jalons (*I*, *V*, *X*) et les exceptions (*IV* et *IX*). Et qu'une seule fois chacun&nbsp;! C'est rassurant dans la mesure où on se rend compte qu'on a que du code utile, rien de superflu. Et c'est effectivement **ce qu'apporte le TDD, une conception** (utiliser les jalons, les exceptions données par les spécifications, réusiner le code) qui a été **pilotée** par les **tests**.
 
 Un énorme merci à [Benoit Gantaume](https://www.linkedin.com/in/benoitgantaume/) qui m'a conforté dans l'idée qu'[il fallait sortir du contenu et ne pas attendre que le contenu soit parfait](https://player.fm/series/artisan-developpeur/comment-ne-pas-creer-de-contenu-avec-romain-fallet) avant de le publier (sous peine de ne jamais le publier)&nbsp;!
 
