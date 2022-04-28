@@ -1,6 +1,6 @@
 # TDD, un nouvel exemple (deuxième partie)
 
-Lors de la première partie nous étions arrivé à ce code pour convertir le nombre en chiffres romains de 1 à 13. Uniquement avec une démarche basée sur des tests, des ajouts successifs, des re-écritures.
+Lors de la première partie nous étions arrivés à ce code pour convertir le nombre en chiffres romains de 1 à 13. Uniquement avec une démarche basée sur des tests, des ajouts successifs, des re-écritures.
 
 ```java
     String convert(int value) {
@@ -19,8 +19,10 @@ Lors de la première partie nous étions arrivé à ce code pour convertir le no
         return (value == 0) ? "" : "I" + convert(value - 1);
     }
  ```
- 
-On a procédé étape par étape en utilisant les 13 premiers nombres comme spécification. Ce n'est pas "faux" de dire cela, mais pour aller jusqu'à 3999 (oui, on ne peut compter que jusqu'à 3999 avec ce système), on ne va pas écrire 4000 tests tout de même&nbsp;!
+
+## Jusqu'où doit-on continuer&nbsp;?
+
+On a procédé étape par étape en utilisant les 13 premiers nombres comme spécification. Ce n'est pas "faux" de dire cela, mais pour aller jusqu'à 3999 (oui, on ne peut compter que jusqu'à 3999 avec ce système), on ne va pas écrire 3999 tests tout de même&nbsp;!
 Rappelons que les règles d'écriture sont basées sur la répétition de trois fois maximum du *I*, du *X*, du *C* et du *M* et la soustraction pour *IV* (5&nbsp;-&nbsp;1), *IX* (10&nbsp;-&nbsp;1), *XL* (50&nbsp;-&nbsp;10), *XC* (100&nbsp;-&nbsp;10), *CD* (500&nbsp;-&nbsp;100) et *CM* (1000&nbsp;-&nbsp;100). Ces règes font aussi parti des spécifications.
 Formulé autrement, tant qu'on le peut, on répète le nombre (*I*, *X*, *C*, *M*). On peut ainsi très vite écrire 3 (*III*), 20 (*XX*), 100 (*C*) ou trois mille (*MMM*). Je cherche pour l'instant à passer à l'étape suivante. Mais j'ai tout de même envie d'essayer avec le nombre 14.
 
@@ -39,9 +41,11 @@ Et là, *miracle*, le test passe&nbsp;! Par quelle magie&nbsp;?
 
 Le fait qu'un test passe alors qu'on n'a pas ajouté de code doit nous faire prendre conscience que le test n'apporte rien. Mais alors pourquoi l'avoir écrit&nbsp;? Parce qu'on était un peu perdu. Mais cela en apprend aussi beaucoup sur notre compréhension du problème. Cela veut dire que le code en place n'est pas si mal et est valable pour 15, 16, 17, 18 et 19 (je vous laisse vérifier). Et pour 20&nbsp;? Aussi&nbsp;!
 
-Ce qui fonctionne pour 20 fonctionne jusqu'à 39. Concrètement, on part d'un nombre (prenons 27) et on lui soustrait "le maximum" possible parmi 10, 9, 5, 4 ou 1 et on continue la même logique sur le nombre restant. Donc de 27 on peut soustraire *X*, il reste 17. De 17 on peut soustraire *X*, il reste 7. De 7 on on peut soustraire *V*, il reste 2. De 2 on peut soustraire *I* il reste 1. De ce 1 on peut soustraire *I* et il reste zéro. Ce qui nous donne la succession *X*, *X*, *V*, *I* puis *I*, soit *XXVII* (27).
+Ce qui fonctionne pour 20 fonctionne jusqu'à 39. Concrètement, on part d'un nombre (prenons 27) et on lui soustrait "le maximum possible" parmi 10, 9, 5, 4 ou 1 et on continue la même logique sur le nombre restant. Donc de 27 on peut soustraire *X*, il reste 17. De 17 on peut soustraire *X*, il reste 7. De 7 on on peut soustraire *V*, il reste 2. De 2 on peut soustraire *I* il reste 1. De ce 1 on peut soustraire *I* et il reste zéro. Ce qui nous donne la succession *X*, *X*, *V*, *I* puis *I*, soit *XXVII* (27).
 
-Tant qu'on a pas atteint zéro on soustrait le "maximum" possible (valeur que l'on garde pour constituer la réponse), et on continue d'appliquer la même méthode sur la valeur restante. Cela est déjà rendu possible par la récursivité, mais on pourrait tout à fait l'écrire avec un `while` (tant que). À ce stade c'est encore assez facile à changer et de toute manière les tests vont nous rassurer que nous ne cassons rien, qu'il n'y a pas de régression. D'ailleurs, avant de commencer, on a une alternance de `==` et `>=` que j'aimerais harmoniser. On peut mettre `>=` partout. En effet, on essaye d'abord de soustraire 10, puis 9, puis 5. S'il y a égalité, il n'y a plus rien à soustraire. S'il nous reste 4, on ne peut que retourner *IV*. Essayons ceci&nbsp;:
+## Arrêt de la récursivité
+
+Tant qu'on a pas atteint zéro on soustrait "le maximum" possible" (valeur que l'on garde pour constituer la réponse), et on continue d'appliquer la même méthode sur la valeur restante. Cela est déjà rendu possible par la récursivité, mais on pourrait tout à fait l'écrire avec un `while` (tant que). À ce stade c'est encore assez facile à changer et de toute manière les tests vont nous rassurer que nous ne cassons rien, qu'il n'y a pas de régression. D'ailleurs, avant de commencer, on a une alternance de `==` et `>=` que j'aimerais harmoniser. On peut mettre `>=` partout. En effet, on essaye d'abord de soustraire 10, puis 9, puis 5. S'il y a égalité, il n'y a plus rien à soustraire. S'il nous reste 4, on ne peut que retourner *IV*. Essayons ceci&nbsp;:
 
 ```java
     String convert(int value) {
@@ -106,7 +110,11 @@ Et pour harmoniser la dernière ligne on peut inverser le test&nbsp;:
     }
 ```
 
-Là, le schéma est tellement répétitif qu'on va pourvoir passer au `while` assez facilement. C'est un *gros* changement, mais on a notre filet de sécurité&nbsp;: les tests.
+Là, le schéma est tellement répétitif qu'on va pourvoir passer au `while` assez facilement.
+
+## Arrêt de la récursivité&nbsp;: échec
+
+C'est un *gros* changement, mais on a notre filet de sécurité&nbsp;: les tests.
 
 ```java
     String convert(int value) {
@@ -176,6 +184,8 @@ Le problème vient du fait qu'avec ce `while` on enchaine les différentes étap
 
 Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp;: on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaines. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
 
+## Généralisation
+
 Il est difficile de choisir la prochaine étape. Est-ce qu'on simplifie le code où on essaye d'aller plus loin dans les tests&nbsp;? Il n'y a pas de règle. Je décide de voir ce que va donner le code avec 40 (*XL*). On peut dores et déjà dire que le test va échouer, à aucun moment on ne propose la lettre *L* en sortie.
 
 Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? On peut ajouter le moins de code possible&nbsp;:
@@ -187,7 +197,7 @@ Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? O
     }
 ```
 
-Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même règle. On soustrait le "maximum" possible et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
+Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même règle. On soustrait "le maximum" possible" et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
 
 Essayons cela&nbsp;:
 
@@ -229,7 +239,7 @@ Essayons cela&nbsp;:
     }
 ```
 
-Et le test passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire le maximum possibe comme cela est déjà en place.
+Et le test passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possibe" comme cela est déjà en place.
 
 Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
 
@@ -294,9 +304,11 @@ Le `continue` doit être transformé en `break` car on sera dans une boucle `for
     }
 ```
 
-Tous les tests restent verts, il n'y a pas eu de régression.
+Tous les tests restent verts, il n'y a pas eu de régression. On a clairement fait une relativement grosse refactorisation.
 
-Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. Le design a émergé, il fonctionne, les tests nous l'ont montré. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
+## Utlime étape
+
+Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. **Le design a émergé, il est valide, les tests nous l'ont montré**. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
 
 Au final on a obtenu du code concis, on est passé par plein d'étapes (introduction et abandon de la récursion, boucle pour remplacer les `if`, erreur), et on a à la fois répondu aux spécifications et fait évoluer le code de manière plutôt "élegante", vers une solution qui ne nous serait peut-être jamais venue autrement, et surtout vers une solution qui n'a probablement pas de bugs&nbsp;!
 
