@@ -174,7 +174,7 @@ Le problème vient du fait qu'avec ce `while` on enchaine les différentes étap
     }
 ```
 
-Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp; on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaines. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
+Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp;: on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaines. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
 
 Il est difficile de choisir la prochaine étape. Est-ce qu'on simplifie le code où on essaye d'aller plus loin dans les tests&nbsp;? Il n'y a pas de règle. Je décide de voir ce que va donner le code avec 40 (*XL*). On peut dores et déjà dire que le test va échouer, à aucun moment on ne propose la lettre *L* en sortie.
 
