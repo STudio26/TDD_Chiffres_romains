@@ -278,7 +278,7 @@ Ce qui donne (si `i` est notre index qui parcourt `arabicValues`), pour chaque `
                 }
 ```
 
-Le `continue` doit être transformé en `break` car on sera dans une boucle `for`. Le for est lui même dans la boucle `while` qu'on conserve. Ce qui donne au final&nbsp;:
+Le `continue` doit être transformé en `break` car on sera dans une boucle `for`. La boucle `for` est elle même dans la boucle `while` qu'on conserve. Ce qui donne au final&nbsp;:
 
 ```java
     String convert(int value) {
