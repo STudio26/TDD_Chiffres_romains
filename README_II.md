@@ -246,3 +246,55 @@ Décorticons un bloc&nbsp;:
 Dans ce bloc on a 40, sa valeur associée *XL* et une soustraction de 40 sur la valeur traitée. C'est exactement pareil pour chaque bloc (sauf le dernier, le *I* où le `continue` a été omis, mais cela ne poserait pas de problème de l'avoir, vous pouvez tester).
 
 On a donc une liste de valeur 40, 10, 9, 5, 4, 1 et les chiffres romains associés *XL*, *X*, *IX*, *V*, *IV* et *I*. Ne pourrait-t-on pas les **stocker dans une structure** et **boucler sur ces différentes valeurs** pour éviter de répéter les blocs `if`&nbsp;? C'est certes encore un gros changement, mais les tests sont là pour nous aider en cas d'erreur.
+
+Tout d'abord on ajoute cette structure de donnée de manière très simple sous forme de deux tableaux&nbsp;:
+
+```java
+package com.mycompany;
+
+public class RomanNumber {
+
+    int[] arabicValues = {40, 10, 9, 5, 4, 1};
+    String[] romanValues = {"XL", "X", "IX", "V", "IV", "I"};
+
+    public RomanNumber() {
+    }
+
+    String convert(int value) {
+        [...]
+    }
+}
+```
+
+Ensuite, au lieu d'avoir 6 `if`, on va boucler sur les 6 valeurs du tableau. Si on traite le nombre 42 et qu'on a une correspondance (40 est supérieur ou égal à 42), on va garder *XL*, décrémenter de 40 et poursuivre le traitement avec 2.
+
+Ce qui donne (si `i` est notre index qui parcourt `arabicValues`), pour chaque `if`&nbsp;:
+
+```java
+                if (value >= arabicValues[i]) {
+                    result.append(romanValues[i]);
+                    value -= arabicValues[i];
+                    continue;
+                }
+```
+
+Le `continue` doit être transformé en `break` car on sera dans une boucle `for`. Le for est lui même dans la boucle `while` qu'on conserve. Ce qui donne au final&nbsp;:
+
+```java
+    String convert(int value) {
+        StringBuilder result;
+        result = new StringBuilder();
+        while (value != 0)
+            for(int i = 0; i < arabicValues.length; i++)
+                if (value >= arabicValues[i]) {
+                    result.append(romanValues[i]);
+                    value -= arabicValues[i];
+                    break;
+                }
+        return result.toString();
+    }
+```
+
+Tous les tests restent verts, il n'y a pas eu de régression.
+
+Le principe des nombre "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000).
