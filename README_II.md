@@ -307,7 +307,7 @@ Tous les tests restent verts, il n'y a pas eu de régression. On a fait une rela
 
 ## Utlime étape
 
-Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. **Le design a déjà émergé, il est valide, les tests nous l'ont montré**. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
+Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est une modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. **Le design a déjà émergé, il est valide, les tests nous l'ont montré**. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
 
 ## Conclusion
 
