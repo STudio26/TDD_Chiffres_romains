@@ -282,8 +282,7 @@ Le `continue` doit être transformé en `break` car on sera dans une boucle `for
 
 ```java
     String convert(int value) {
-        StringBuilder result;
-        result = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         while (value != 0)
             for(int i = 0; i < arabicValues.length; i++)
                 if (value >= arabicValues[i]) {
@@ -297,4 +296,33 @@ Le `continue` doit être transformé en `break` car on sera dans une boucle `for
 
 Tous les tests restent verts, il n'y a pas eu de régression.
 
-Le principe des nombre "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000).
+Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbs;? Oui et non. On touche au code, mais cest tbleaux ne sont que du paraétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. Le design a émergé, il fonctionne, les tests nous lont montré. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 50, 51, 99, 100, 101, 399, 400, 401, 499, 500, 501).
+
+Au final on a obtenu du code concis, on est passé par plein d'étapes (introduction et abandon de la récursion, boucle pour remplacer les `if`, erreur), et on a à la fois répondu aux spécifications et fait évoluer le code de manière plutôt "élegante", vers une solution qui ne nous serait peut-être jamais venue autrement.
+
+Le code final&nbsp;:
+
+```java
+package com.mycompany;
+
+public class RomanNumber {
+
+    int[] arabicValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    String[] romanValues = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+    public RomanNumber() {
+    }
+
+    String convert(int value) {
+        StringBuilder result = new StringBuilder();
+        while (value != 0)
+            for(int i = 0; i < arabicValues.length; i++)
+                if (value >= arabicValues[i]) {
+                    result.append(romanValues[i]);
+                    value -= arabicValues[i];
+                    break;
+                }
+        return result.toString();
+    }
+}
+```
