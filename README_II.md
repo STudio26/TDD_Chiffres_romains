@@ -197,7 +197,7 @@ Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? O
     }
 ```
 
-Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même règle. On soustrait "le maximum" possible" et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
+Et cela passerait. Mais 41 ne passerait pas. Au vu de notre expérience, on va appliquer la même règle. On soustrait "le maximum possible" et on continue. Ici 40 (*XL*) se comporte un peut comme 4 (*IV*) que nous avons déjà traité.
 
 Essayons cela&nbsp;:
 
@@ -239,11 +239,11 @@ Essayons cela&nbsp;:
     }
 ```
 
-Et le test passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possibe" comme cela est déjà en place.
+Et le test pour 41 passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possibe" comme cela est déjà en place.
 
 Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
 
-Décorticons un bloc&nbsp;:
+Décorticons le premier bloc `if`&nbsp;:
 
 ```java
             if (value >= 40) {
@@ -304,11 +304,13 @@ Le `continue` doit être transformé en `break` car on sera dans une boucle `for
     }
 ```
 
-Tous les tests restent verts, il n'y a pas eu de régression. On a clairement fait une relativement grosse refactorisation.
+Tous les tests restent verts, il n'y a pas eu de régression. On a fait une relativement grosse refactorisation sans rien casser.
 
 ## Utlime étape
 
-Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. **Le design a émergé, il est valide, les tests nous l'ont montré**. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
+Le principe des nombres "jalons" dans les tableaux peut enuite être étendu pour aller jusqu'à *M* (1000). Doit-t-on ajouter du code avant d'étendre la liste des jalons&nbsp;? En effet, on a répété que pour chaque progression on ajoutait un test avant d'ajouter du code. Mais croyez-vous que changer la liste des nombres est un modification de code&nbsp;? Oui et non. On touche au code, mais ces tableaux ne sont que du paramétrage. Donc il n'y a pas de bonne raison pour ajouter des tests. **Le design a déjà émergé, il est valide, les tests nous l'ont montré**. Évidemment pour se rassurer on peut ajouter des tests pour des valeurs clés (celle de la table `arabicValues`), ou des valeur à la marge (49, 51, 99, 101, 399, 401, 499, 501, 899, 901, 1001).
+
+## Conclusion
 
 Au final on a obtenu du code concis, on est passé par plein d'étapes (introduction et abandon de la récursion, boucle pour remplacer les `if`, erreur), et on a à la fois répondu aux spécifications et fait évoluer le code de manière plutôt "élegante", vers une solution qui ne nous serait peut-être jamais venue autrement, et surtout vers une solution qui n'a probablement pas de bugs&nbsp;!
 
