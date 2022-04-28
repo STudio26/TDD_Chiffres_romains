@@ -35,7 +35,7 @@ Je code le test&nbsp;:
 ```
 Et là, *miracle*, le test passe&nbsp;! Par quelle magie&nbsp;?
 
-14 est supérieur à 10, donc on garde *X* et on concatène le résultat de la conversion de 4 (14&nbsp;-&nbsp;10). 4 n'étant ni supérieur à 10, ni égal à neuf, ni supérieur ou égal à cinq, on retournera donc *IV*. Soit *X* concaténé à *IV*, ce qui est exact.
+14 est supérieur à 10, donc on garde *X* et on concatène le résultat de la conversion de 4 (14&nbsp;-&nbsp;10). 4 n'étant ni supérieur à 10, ni égal à neuf, ni supérieur ou égal à cinq, on retournera donc *IV*. Soit *IV* concaténé à *X*, ce qui est la bonne valeur pour 14.
 
 Le fait qu'un test passe alors qu'on n'a pas ajouté de code doit nous faire prendre conscience que le test n'apporte rien. Mais alors pourquoi l'avoir écrit&nbsp;? Parce qu'on était un peu perdu. Mais cela en apprend aussi beaucoup sur notre compréhension du problème. Cela veut dire que le code en place n'est pas si mal et est valable pour 15, 16, 17, 18 et 19 (je vous laisse vérifier). Et pour 20&nbsp;? Aussi&nbsp;!
 
