@@ -275,7 +275,7 @@ public class RomanNumber {
 }
 ```
 
-Ensuite, au lieu d'avoir 6 `if`, on va boucler sur les 6 valeurs du tableau. Si on traite le nombre 42 et qu'on a une correspondance (40 est supérieur ou égal à 42), on va garder *XL*, décrémenter de 40 et poursuivre le traitement avec 2.
+Ensuite, au lieu d'avoir 6 `if`, on va boucler sur les 6 valeurs du tableau. Si on traite le nombre 42 et qu'on a une correspondance (42 est supérieur ou égal à **40**), on va garder *XL*, décrémenter de **40** et poursuivre le traitement avec 2.
 
 Ce qui donne (si `i` est notre index qui parcourt `arabicValues`), pour chaque `if`&nbsp;:
 
