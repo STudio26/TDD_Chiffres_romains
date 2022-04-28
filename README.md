@@ -487,6 +487,8 @@ Et comme je trouve qu'ici extraire une méthode pour une ligne n'apporte plus gr
 
 Avec un peu de recul, ce qui est rassurant dans cette version, c'est qu'on ne mentionne que les jalons (*I*, *V*, *X*) et les exceptions (*IV* et *IX*). Et qu'une seule fois chacun&nbsp;! C'est rassurant dans la mesure où on se rend compte qu'on a que du code utile, rien de superflu. Et c'est effectivement **ce qu'apporte le TDD, une conception** (utiliser les jalons, les exceptions données par les spécifications, réusiner le code) qui a été **pilotée** par les **tests**.
 
+Dans la [seconde partie](README_II.md) de cet article on ira plus loin et traitera *tous les cas*, et vous serez peut-être surpris, comme je l'ai été, de la tournure que prendra le code&nbsp;!
+
 Un énorme merci à [Benoit Gantaume](https://www.linkedin.com/in/benoitgantaume/) qui m'a conforté dans l'idée qu'[il fallait sortir du contenu et ne pas attendre que le contenu soit parfait](https://player.fm/series/artisan-developpeur/comment-ne-pas-creer-de-contenu-avec-romain-fallet) avant de le publier (sous peine de ne jamais le publier)&nbsp;!
 
 ## Annexe
