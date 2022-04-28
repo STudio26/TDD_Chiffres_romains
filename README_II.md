@@ -191,9 +191,8 @@ Il est difficile de choisir la prochaine étape. Est-ce qu'on simplifie le code 
 Le test échoue donc avec *XXXX* au lieu de *XL*. Comment corriger cela&nbsp;? On peut ajouter le moins de code possible&nbsp;:
 
 ```java
-    if (value == 40) {
-        result.append("XL);
-        value = 0;
+    if (value == 40)
+        return "XL;
     }
 ```
 
