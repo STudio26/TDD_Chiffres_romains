@@ -1,6 +1,6 @@
 # TDD, un nouvel exemple (deuxième partie)
 
-Lors de la première partie nous étions arrivés à ce code pour convertir le nombre en chiffres romains de 1 à 13. Uniquement avec une démarche basée sur des tests, des ajouts successifs, des re-écritures.
+Lors de la [première partie](README.md) nous étions arrivés à ce code pour convertir le nombre en chiffres romains de 1 à 13. Uniquement avec une démarche basée sur des tests, des ajouts successifs, des re-écritures.
 
 ```java
     String convert(int value) {
