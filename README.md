@@ -7,7 +7,7 @@ Le Test Driven Development (TDD) est une manière de développer, où ce sont le
 Vous êtes lassés des exemples classiques de TDD tel que [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) et vous souhaitez aller un tout petit peu plus loin&nbsp;? Dans cet article je vous présente un nouvel exercice à pratiquer si vous êtes en manque d'inspiration ainsi qu'une ébauche de solution. Attention, je n'ai pas dit que l'exemple FizzBuzz n'était pas un bon exemple, au contraire, c'est un exemple que je vous invite à pratiquer au moins une fois&nbsp;! Mais si vous cherchez à aller plus loin et que vous ne savez pas dans quelle direction aller, vous trouverez, je l'espère, une piste dans cet article.
 La numérotation romaine
 
-Sans vouloir rappeler toutes les règles d'écriture des nombre comme les romains la pratiquaient ([Wikipedia fait cela très bien](https://en.wikipedia.org/wiki/Fizz_buzz)), voici la liste des premiers nombres de 1 à 10 : *I*, *II*, *III*, *IV*, *V*, *VI*, *VII*, *VIII*, *IX* et *X*.
+Sans vouloir rappeler toutes les règles d'écriture des nombres romains ([Wikipedia fait cela très bien](https://en.wikipedia.org/wiki/Fizz_buzz)), voici la liste des premiers nombres de 1 à 10 : *I*, *II*, *III*, *IV*, *V*, *VI*, *VII*, *VIII*, *IX* et *X*.
 
 Dans la démarche TDD je vois ces nombres comme une spécification. Si on donne 1 à notre convertisseur, il répondra *I*, si on lui donne 2 il répondra *II*, si on lui donne 3 il répondra *III* et ainsi de suite (non, si on lui donne 4 il ne répondra pas *IIII* mais *IV*). Quoi de plus rassurant que d'ajouter une minuscule étape, un baby step (un nouveau test qui nous fait progresser) et d'être sûr de ne rien casser de ce qu'on a déjà codé&nbsp;?
 
