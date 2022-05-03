@@ -103,7 +103,7 @@ Et pour harmoniser la dernière ligne on peut inverser le test&nbsp;:
         if (value >= 4)
             return "IV" + convert(value - 4);
 
-        return (value >= 1)
+        if (value >= 1)
             return "I" + convert(value - 1);
             
         return "";
