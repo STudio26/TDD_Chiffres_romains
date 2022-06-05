@@ -145,7 +145,7 @@ C'est un *gros* changement, mais on a notre filet de sécurité&nbsp;: les tests
     }
 ```
 
-Et là, catastrophe&nbsp;! Des tests comme 20, 21, 30 ou 39 qui passaient ne passent plus. Soit on arrive à corriger assez vite, soit on revient en arrière. Normalement un test vous présente la valeur attendue et la valeur retournée. Par exemple pour 30 on attend *XXX* et on a *XIXVIVII* (soit, je devinne, 10 + 9 + 5 + 4 + 1 + 1) qui ne respecte pas les règles de la notation que nous connaissons.
+Et là, catastrophe&nbsp;! Des tests comme 20, 21, 30 ou 39 qui passaient ne passent plus. Soit on arrive à corriger assez vite, soit on revient en arrière. Normalement un test vous présente la valeur attendue et la valeur retournée. Par exemple pour 30 on attend *XXX* et on a *XIXVIVII* (soit, je devine, 10 + 9 + 5 + 4 + 1 + 1) qui ne respecte pas les règles de la notation que nous connaissons.
 
 Le problème vient du fait qu'avec ce `while` on enchaine les différentes étapes et on n'essaye pas de soustraire le maximum possible. Si on reprend notre exemple, de 30 on peut soustraire 10 (*X*) et ensuite de 20 on peut encore soustraire 10 (*X*). Sauf qu'on soustrait 9 (*IX*) parcequ'**on ne reprend pas la boucle au début**, là est l'erreur. Dans chaque bloc `if` il faut veiller à arrêter la boucle et reprendre au début. On peut simplement ajouter un `continue`. Ce qui donne&nbsp;:
 
