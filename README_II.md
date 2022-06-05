@@ -147,7 +147,7 @@ C'est un *gros* changement, mais on a notre filet de sécurité&nbsp;: les tests
 
 Et là, catastrophe&nbsp;! Des tests comme 20, 21, 30 ou 39 qui passaient ne passent plus. Soit on arrive à corriger assez vite, soit on revient en arrière. Normalement un test vous présente la valeur attendue et la valeur retournée. Par exemple pour 30 on attend *XXX* et on a *XIXVIVII* (soit, je devine, 10 + 9 + 5 + 4 + 1 + 1) qui ne respecte pas les règles de la notation que nous connaissons.
 
-Le problème vient du fait qu'avec ce `while` on enchaine les différentes étapes et on n'essaye pas de soustraire le maximum possible. Si on reprend notre exemple, de 30 on peut soustraire 10 (*X*) et ensuite de 20 on peut encore soustraire 10 (*X*). Sauf qu'on soustrait 9 (*IX*) parcequ'**on ne reprend pas la boucle au début**, là est l'erreur. Dans chaque bloc `if` il faut veiller à arrêter la boucle et reprendre au début. On peut simplement ajouter un `continue`. Ce qui donne&nbsp;:
+Le problème vient du fait qu'avec ce `while` on enchaîne les différentes étapes et on n'essaye pas de soustraire le maximum possible. Si on reprend notre exemple, de 30 on peut soustraire 10 (*X*) et ensuite de 20 on peut encore soustraire 10 (*X*). Sauf qu'on soustrait 9 (*IX*) parcequ'**on ne reprend pas la boucle au début**, là est l'erreur. Dans chaque bloc `if` il faut veiller à arrêter la boucle et reprendre au début. On peut simplement ajouter un `continue`. Ce qui donne&nbsp;:
 
 ```java
     String convert(int value) {
@@ -182,7 +182,7 @@ Le problème vient du fait qu'avec ce `while` on enchaine les différentes étap
     }
 ```
 
-Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp;: on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaines. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
+Et voilà, tous les tests sont à nouveau au vert. Points positifs&nbsp;: on a supprimé la récursivité, on a un `StringBuilder` plus adapté à la concaténation de chaînes. Point négatif&nbsp;: le code est plus long et toujours très répétitif (et accessoirement on est toujours plafonné à 39).
 
 ## Généralisation
 
@@ -238,7 +238,7 @@ Essayons cela&nbsp;:
     }
 ```
 
-Et le test pour 41 passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possibe" comme cela est déjà en place.
+Et le test pour 41 passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possible" comme cela est déjà en place.
 
 Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
 
