@@ -242,7 +242,7 @@ Et le test pour 41 passe au vert. Si on prend la peine de vérifier, on arrive m
 
 Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
 
-Décorticons le premier bloc `if`&nbsp;:
+Décortiquons le premier bloc `if`&nbsp;:
 
 ```java
             if (value >= 40) {
