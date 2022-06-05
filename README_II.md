@@ -311,7 +311,7 @@ Le principe des nombres "jalons" dans les tableaux peut ensuite être étendu po
 
 ## Conclusion
 
-Au final on a obtenu du code concis, on est passé par plein d'étapes (introduction et abandon de la récursion, boucle pour remplacer les `if`, erreur), et on a à la fois répondu aux spécifications et fait évoluer le code de manière plutôt "élegante", vers une solution qui ne nous serait peut-être jamais venue autrement, et surtout vers une solution qui n'a probablement pas de bugs&nbsp;!
+Au final on a obtenu du code concis, on est passé par plein d'étapes (introduction et abandon de la récursion, boucle pour remplacer les `if`, erreur), et on a à la fois répondu aux spécifications et fait évoluer le code de manière plutôt "élégante", vers une solution qui ne nous serait peut-être jamais venue autrement, et surtout vers une solution qui n'a probablement pas de bugs&nbsp;!
 
 Le code final&nbsp;:
 
