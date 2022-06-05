@@ -240,7 +240,7 @@ Essayons cela&nbsp;:
 
 Et le test pour 41 passe au vert. Si on prend la peine de vérifier, on arrive même jusqu'à 49 sans encombre. Maintenant le schéma est **limpide**. Il est répétitif et on peut sans trop de risque ajouter *L* (50), *XC* (90), *C* (100), *CD* (400), *D* (500), *CM* (900) et *M* (1000). L'ordre a son importance, il faut essayer en premier lieu de soustraire "le maximum possible" comme cela est déjà en place.
 
-Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon gout), ne pourrait-on pas améliorer le code existant&nbsp;?
+Mais avant de faire cela et d'ajouter des lignes de code (un peu trop nombreuses à mon goût), ne pourrait-on pas améliorer le code existant&nbsp;?
 
 Décortiquons le premier bloc `if`&nbsp;:
 
