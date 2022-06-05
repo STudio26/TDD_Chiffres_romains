@@ -1,6 +1,6 @@
 # TDD, un nouvel exemple (première partie)
 
-## C'est quoi déjà le Test Driven Developpement&nbsp;?
+## Qu'est-ce que le Test Driven Developpement&nbsp;?
 
 Le Test Driven Development (TDD) est une manière de développer, où ce sont les spécifications écrites sous forme de tests (et leurs résultats attendus) qui guident votre développement avant l'écriture du code. Chaque test ajouté fait avancer vers la résolution du problème, chaque modification du code déjà écrit est encouragée, tant que les tests précédents ne sont pas "cassés". Si vous cassez un test que vous aviez validé, vous devez revenir en arrière sur votre code ajouté et appliquer d'autres modifications qui vous feront progresser (et jamais régresser).
 
